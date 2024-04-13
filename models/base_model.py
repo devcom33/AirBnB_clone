@@ -26,8 +26,8 @@ class BaseModel:
     def to_dict(self):
         """returns a dictionary containing all keys/values"""
         class_name = self.__class__.__name__
-        created_at_str = self.created_at.isoformat()
-        updated_at_str = self.updated_at.isoformat()
+        created_at_str = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        updated_at_str = self.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
         return {'__class__': class_name,
                 'id': self.id,
                 'created_at': created_at_str,
