@@ -16,7 +16,7 @@ class BaseModel:
                     self.id = v
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
+            self.created_at = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
             self.updated_at = datetime.now()
 
     def save(self):
