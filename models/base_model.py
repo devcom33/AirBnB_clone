@@ -21,6 +21,14 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
+    def __str__(self):
+        """Return string representation of the object."""
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__
+        )
+
     def save(self):
         """Update the 'updated_at' timestamp to the current datetime."""
         self.updated_at = datetime.now()
@@ -35,13 +43,5 @@ class BaseModel:
         dict_obj['id'] = self.id
         dict_obj['created_at'] = created_at_
         dict_obj['updated_at'] = updated_at_
+
         return dict_obj
-
-    def __str__(self):
-        """Return string representation of the object."""
-        return "[{}] ({}) {}".format(
-            self.__class__.__name__,
-            self.id,
-            self.__dict__
-        )
-
