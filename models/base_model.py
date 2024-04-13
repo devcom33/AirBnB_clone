@@ -14,8 +14,8 @@ class BaseModel:
                 if k in ["created_at", "updated_at"]:
                     self.__dict__[k] = datetime\
                                     .strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
-                elif k == 'id':
-                    self.id = v
+                elif '__class__' in kwargs:
+                    del kwargs['__class__']
                 else:
                     setattr(self, k, v)
         else:
