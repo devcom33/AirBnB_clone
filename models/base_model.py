@@ -10,11 +10,12 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Base Model Instance"""
         if len(kwargs) > 0:
-            for k, v in kwargs.items():
+            for k in kwargs.keys():
+                v = kwargs[k]
                 if k in ["created_at", "updated_at"]:
                     self.__dict__[k] = datetime\
                                     .strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
-                elif '__class__' in kwargs:
+                elif k == '__class__':
                     del kwargs['__class__']
                 else:
                     setattr(self, k, v)
