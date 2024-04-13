@@ -42,7 +42,6 @@ class BaseModel:
         created_at_ = self.created_at.isoformat()
         updated_at_ = self.updated_at.isoformat()
         dict_obj['__class__'] = class_name
-        dict_obj['id'] = self.id
         dict_obj['created_at'] = created_at_
         dict_obj['updated_at'] = updated_at_
 
