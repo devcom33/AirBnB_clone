@@ -20,7 +20,7 @@ class BaseModel:
                     del kwargs['__class__']
                 else:
                     setattr(self, k, v)
-             __dict__ = kwargs
+             self.__dict__ = kwargs
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
