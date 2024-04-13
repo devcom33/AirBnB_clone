@@ -34,3 +34,14 @@ class BaseModel:
                 'updated_at': updated_at_str,
                 **self.__dict__
                 }
+    def __str__(self):
+        """Return string representation of the object."""
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__
+        )
+
+    def __repr__(self):
+        """Return object representation."""
+        return "<{}>".format(str(self))
