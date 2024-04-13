@@ -10,7 +10,6 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Base Model Instance"""
         if len(kwargs) > 0:
-            kwargs = kwargs.copy()
             for k in kwargs.keys():
                 v = kwargs[k]
                 if k in ["created_at", "updated_at"]:
@@ -20,7 +19,6 @@ class BaseModel:
                     del kwargs['__class__']
                 else:
                     setattr(self, k, v)
-            self.__dict__ = kwargs
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
