@@ -14,6 +14,8 @@ class BaseModel:
                                     .strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
                 elif k == 'id':
                     self.id = v
+                else:
+                    setattr(self, k, v)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
